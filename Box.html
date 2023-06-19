@@ -4,15 +4,40 @@
 <head>
     <title>Box Generator</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
         .box {
             width: 75px;
             height: 75px;
             border: solid 1px;
             margin-bottom: 5px;
             float: left;
-            text-align: left;
+            text-align: center;
             display: grid;
-            place-items: left;
+            place-items: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #draw {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        #draw:hover {
+            background-color: #3E8E41;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
@@ -47,7 +72,7 @@
 </head>
 
 <body>
-    <ch1>How many boxes?</ch1>
+    <h1>How many boxes?</h1>
     <input type="text" id="boxNum">
     <input type="button" id="draw" value="Draw" onClick="boxGenerator()">
     <div></div>
