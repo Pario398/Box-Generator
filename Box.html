@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Box Generator</title>
+    <style>
+        .box {
+            width: 75px;
+            height: 75px;
+            border: solid 1px;
+            margin-bottom: 5px;
+            float: left;
+            text-align: left;
+            display: grid;
+            place-items: left;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        function colorGenerator() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function boxGenerator() {
+            var temp = "";
+            var margin = 5;
+            var container = $("#container");
+            var number = $("#boxNum").val();
+            container.html("");
+            for (var start = 1; number >= start; start += 1) {
+                temp = colorGenerator()
+                firstBox = $("<div></div>");
+                firstBox.addClass("box");
+                firstBox.html(start);
+                firstBox.css("background-color", temp);
+                firstBox.css("margin-left", margin + "px");
+                container.append(firstBox);
+                margin = margin * 2;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ch1>How many boxes?</ch1>
+    <input type="text" id="boxNum">
+    <input type="button" id="draw" value="Draw" onClick="boxGenerator()">
+    <div></div>
+    <div id="container"></div>
+</body>
+
+</html>
